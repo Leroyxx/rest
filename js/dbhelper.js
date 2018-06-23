@@ -143,7 +143,6 @@ class DBHelper {
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
-    if (restaurant.name === "No restaurants found!") {return './'}
     return (`./restaurant.html?id=${restaurant.id}`);
   }
 
