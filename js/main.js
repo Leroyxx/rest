@@ -100,6 +100,16 @@ updateRestaurants = () => {
     if (error) { // Got an error!
       console.error(error);
     } else {
+      if (restaurants.length === 0) { //No restaurants found
+        restaurants = [
+          {
+            name: "No restaurants found!",
+            neighborhood: "",
+            address: "The search fiter returned no results.",
+            photograph: "0.jpg"
+          }
+        ]
+      }
       resetRestaurants(restaurants);
       fillRestaurantsHTML();
     }
@@ -126,6 +136,7 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+  console.log(restaurants, 'hey');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
@@ -158,8 +169,21 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
+  if (restaurant.name === "No restaurants found!") {
+    function revert() {
+      const cSelect = document.getElementById('cuisines-select');
+      const nSelect = document.getElementById('neighborhoods-select');
+      cSelect.selectedIndex = 0;
+      nSelect.selectedIndex = 0;
+      updateRestaurants();
+    }
+    more.innerHTML = 'Back home';
+    more.onclick = function(e) {revert(); return false}
+    more.href='./';
+  } else {
+    more.innerHTML = 'View Details';
+    more.href = DBHelper.urlForRestaurant(restaurant);
+  }
   li.append(more)
 
   return li
