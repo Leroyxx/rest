@@ -57,7 +57,7 @@ nav h1 {
   margin: auto;
 }
 nav h1 a {
-  color: #fff;
+  color: #fefafa;
 	font-size: 1.05em;
 	letter-spacing: 0.16em;
   font-weight: 200;
@@ -225,7 +225,7 @@ nav h1 a {
   min-width: 100%;
 }
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #864903;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
