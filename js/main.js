@@ -136,6 +136,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
+  //console.log(restaurant);
   const li = document.createElement('li');
 
   const image = document.createElement('img');
@@ -152,6 +153,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(neighborhood);
 
   const address = document.createElement('p');
+  address.className = 'restaurant-address';
   address.innerHTML = restaurant.address;
   li.append(address);
 
