@@ -106,7 +106,8 @@ updateRestaurants = () => {
             name: "No restaurants found!",
             neighborhood: "",
             address: "The search fiter returned no results.",
-            photograph: "0.jpg"
+            photograph: "0.jpg",
+            "pg-alt": "Pacman in shock"
           }
         ]
       }
@@ -136,7 +137,6 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
-  console.log(restaurants, 'hey');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
@@ -153,6 +153,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant["pg-alt"];
   li.append(image);
 
   const name = document.createElement('h1');
