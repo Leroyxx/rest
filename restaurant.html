@@ -6,39 +6,51 @@
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Restaurant Info</title>
 </head>
 
 <body class="inside">
-  <!-- Beginning header -->
-  <header>
-    <!-- Beginning nav -->
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
+
+  <!-- Beginning main -->
+  <div class="restaurant-page">
+    <!-- Beginning header -->
+    <header>
+      <!-- Beginning nav -->
+      <nav>
+        <h1><a href="/">Restaurant Reviews</a></h1>
+      </nav>
+    </header>
+    <!-- Beginning map -->
+    <div class="right">
+      <button class="collapsible" aria-label="minimize map" hidden>_</button>
+      <section id="map-container">
+      <div id="map"></div>
+    </section>
+    </div>
+    <!-- End map -->
+
+  <div class=left>
     <!-- Beginning breadcrumb -->
     <ul id="breadcrumb" >
       <li><a href="/">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
     <!-- End nav -->
-  </header>
   <!-- End header -->
-
-  <!-- Beginning main -->
   <main id="maincontent">
-    <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <!-- End map -->
     <!-- Beginning restaurant -->
+    <button class="collapsible" aria-label="minimize restaurant details"hidden>_</button>
     <section id="restaurant-container">
+      <div class="restaurant-left">
       <h1 id="restaurant-name"></h1>
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
+      </div>
+      <div class="restaurant-right">
       <p id="restaurant-address"></p>
       <table id="restaurant-hours"></table>
+      </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
@@ -53,6 +65,8 @@
   <footer id="footer">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
+  </div>
+  </div>
   <!-- End footer -->
 
   <!-- Beginning scripts -->
