@@ -130,7 +130,7 @@ createReviewHTML = (review) => {
     top.appendChild(date);
   li.appendChild(top);
 
-  const rating = document.createElement('p');
+  const rating = document.createElement('span');
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 

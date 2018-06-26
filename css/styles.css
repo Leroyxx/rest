@@ -171,6 +171,20 @@ nav h1 a {
 	}
 }
 @media screen and (max-width: 550px) {
+	nav h1 a {
+		font-size: 4.25vw;
+		height: 35px;
+		letter-spacing: 0.34em;
+	}
+#reviews-list li > span {
+	padding-right: 30px;
+}
+.review-top {
+	flex-wrap: wrap;
+}
+.review-date {
+\	flex: 0;
+}
 .left, .right {
 	width: 100%;
 }
@@ -211,6 +225,9 @@ nav h1 a {
 			flex-wrap: wrap;
 			padding-left: 40px;
 			margin-top: 23px;
+	}
+	#reviews-list li > span {
+		padding-right: 60px;
 	}
 	#restaurant-address {
     	padding-top: calc(10% + 50px);
@@ -265,6 +282,9 @@ nav h1 a {
 }
 
 @media screen and (min-width: 781px) {
+	#reviews-list li > span {
+	  padding-right: 107px;
+	}
 	.left {
 		width: 56%;
 	}
@@ -402,7 +422,7 @@ nav h1 a {
   font-size: 20pt;
   font-weight: 200;
   letter-spacing: 0;
-  margin: 40px 0 30px;
+  margin: 45px 0 15px;
   text-transform: uppercase;
   line-height: 1.1;
 }
@@ -458,9 +478,27 @@ nav h1 a {
 	min-height: 132px;
 	border-radius: 37px 0px 37px 0px;
 }
-#reviews-list li > * {
+#reviews-list li > .review-top {
 	padding-left: 33px;
 	padding-right: 10px;
+}
+#reviews-list li > p, span {
+	margin-left: 33px;
+	padding-right: 10px;
+}
+#reviews-list li > span {
+	text-transform: uppercase;
+  top: 0px;
+  font-weight: bolder;
+  padding-top: 3px;
+  margin-left: -1em;
+  background-color: #824631;
+  position: relative;
+  border-radius: 0px 0px 18px 10px;
+  color: white;
+  font-size: 12px;
+  padding-bottom: 4px;
+  padding-left: 50px;
 }
 .review-top {
 	background-color: #333;
@@ -477,6 +515,7 @@ nav h1 a {
 	flex: 1;
 }
 .review-name {
+	padding-left: 6px;
 	padding-top: 20px;
 	flex: 1;
 }
