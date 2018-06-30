@@ -103,12 +103,19 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  background-color: #3397DB;
+	background-color: #ffffff;
   align-items: center;
+	border-bottom: 2px solid #3e93d5;
 }
 #filter-form {
 	display: flex;
 	justify-content: space-around;
+}
+#filter-form > h2 {
+  font-weight: bold;
+  font-size: 2em;
+  padding-top: 0.29em;
+  letter-spacing: 2px;
 }
 #filter-form > * {
 	margin: 0 1em;
@@ -356,7 +363,7 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
+  max-height: 248px;
   min-width: 100%;
 }
 #restaurants-list li h1 {
