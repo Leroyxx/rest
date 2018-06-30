@@ -10,6 +10,7 @@ var markers = []
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
+  updateRestaurants(true);
 });
 
 /**
@@ -70,6 +71,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
 /**
  * Initialize Google map, called from HTML.
  */
+if (window.navigator.onLine) {
 window.initMap = () => {
   let loc = {
     lat: 40.722216,
@@ -82,11 +84,11 @@ window.initMap = () => {
   });
   updateRestaurants();
 }
-
+}
 /**
  * Update page and map for current restaurants.
  */
-updateRestaurants = () => {
+updateRestaurants = (isInitialRun) => {
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
 
@@ -111,8 +113,10 @@ updateRestaurants = () => {
           }
         ]
       }
-      resetRestaurants(restaurants);
-      fillRestaurantsHTML();
+      if (isInitialRun) { resetRestaurants(restaurants, true)
+      fillRestaurantsHTML(restaurants, true);}
+      else { resetRestaurants(restaurants);
+      fillRestaurantsHTML(); }
     }
   })
 }
@@ -120,27 +124,31 @@ updateRestaurants = () => {
 /**
  * Clear current restaurants, their HTML and remove their map markers.
  */
-resetRestaurants = (restaurants) => {
+resetRestaurants = (restaurants, isInitialRun) => {
   // Remove all restaurants
   self.restaurants = [];
   const ul = document.getElementById('restaurants-list');
   ul.innerHTML = '';
 
   // Remove all map markers
+  if (!isInitialRun) {
   self.markers.forEach(m => m.setMap(null));
   self.markers = [];
   self.restaurants = restaurants;
+  }
 }
 
 /**
  * Create all restaurants HTML and add them to the webpage.
  */
-fillRestaurantsHTML = (restaurants = self.restaurants) => {
+fillRestaurantsHTML = (restaurants, isInitialRun) => {
+  if (!restaurants) {restaurants = self.restaurants}
   const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
-  addMarkersToMap();
+  if (!isInitialRun) {
+  addMarkersToMap() }
 }
 
 /**
@@ -196,6 +204,7 @@ createRestaurantHTML = (restaurant) => {
  */
 addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
+    if (!window.navigator.onLine) { return }
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
     google.maps.event.addListener(marker, 'click', () => {
