@@ -100,6 +100,14 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+.map-error {
+	font-size: 2.4vw;
+	top: 7em;
+	position: relative;
+	color: #5a5f75;
+	margin: 0 auto;
+	left: 25.4%;
+}
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;

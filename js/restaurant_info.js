@@ -9,16 +9,32 @@ window.initMap = () => {
     if (error) { // Got an error!
       console.error(error);
     } else {
+      if (window.navigator.onLine) {
       self.map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: restaurant.latlng,
         scrollwheel: false
       });
-      fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
+    }
+      fillBreadcrumb();
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  if (!window.navigator.onLine) {
+    fetchRestaurantFromURL((error, restaurant) => {
+      if (error) {console.log(error) } else {
+        fillBreadcrumb();
+            const mapContainer = document.getElementById('map');
+            mapContainer.innerHTML = `
+            <p class="map-error">Sadly,</p>
+            <p class="map-error">maps are not avaiable</p>
+            <p class="map-error"> offline. :(</p>  `;
+
+    }})};
+});
 
 /**
  * Get current restaurant from page URL.

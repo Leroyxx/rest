@@ -71,7 +71,6 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
 /**
  * Initialize Google map, called from HTML.
  */
-if (window.navigator.onLine) {
 window.initMap = () => {
   let loc = {
     lat: 40.722216,
@@ -83,7 +82,6 @@ window.initMap = () => {
     scrollwheel: false
   });
   updateRestaurants();
-}
 }
 /**
  * Update page and map for current restaurants.
@@ -114,7 +112,15 @@ updateRestaurants = (isInitialRun) => {
         ]
       }
       if (isInitialRun) { resetRestaurants(restaurants, true)
-      fillRestaurantsHTML(restaurants, true);}
+      fillRestaurantsHTML(restaurants, true);
+      if (!window.navigator.onLine) {
+        const mapContainer = document.getElementById('map');
+        mapContainer.innerHTML = `
+        <p class="map-error">Sadly,</p>
+        <p class="map-error">maps are not avaiable</p>
+        <p class="map-error"> offline. :(</p>  `;
+      }
+      }
       else { resetRestaurants(restaurants);
       fillRestaurantsHTML(); }
     }
