@@ -309,7 +309,7 @@ nav h1 a {
 		height: 58px;
 	}
 	.left {
-		padding-top: 59px;
+		padding-top: 58px;
 	}
 	#filter-form h2 {
 		font-size: 2em;
@@ -499,7 +499,6 @@ nav h1 a {
   font-weight: bolder;
   padding-top: 3px;
   margin-left: -1em;
-  background-color: #824631;
   position: relative;
   border-radius: 0px 0px 18px 10px;
   color: white;
@@ -525,6 +524,16 @@ nav h1 a {
 	padding-left: 6px;
 	padding-top: 20px;
 	flex: 1;
+}
+/*rating colors*/
+.rating-1, .rating-2 {
+	background: #332d10;
+}
+.rating-3, .rating-4 {
+	background: #153b4a;
+}
+.rating-5 {
+	background: #380b0b;
 }
 
 #restaurant-hours td {
