@@ -156,7 +156,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = restaurant["pg-alt"];
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -169,7 +169,7 @@ createRestaurantHTML = (restaurant) => {
   address.innerHTML = restaurant.address;
   li.append(address);
 
-  const more = document.createElement('a');
+  const more = document.createElement('button');
   if (restaurant.name === "No restaurants found!") {
     function revert() {
       const cSelect = document.getElementById('cuisines-select');
@@ -183,7 +183,8 @@ createRestaurantHTML = (restaurant) => {
     more.href='./';
   } else {
     more.innerHTML = 'View Details';
-    more.href = DBHelper.urlForRestaurant(restaurant);
+    const href = DBHelper.urlForRestaurant(restaurant);
+    more.onclick = function(e) {window.location.href = href}
   }
   li.append(more)
 

@@ -144,7 +144,7 @@ nav h1 a {
 		padding-top: 60px;
 	}
 }
-@media screen and (max-width: 386px) {
+@media screen and (max-width: 445px) {
 	.filter-options select {
 		height: 4em;
 		margin-bottom: 12px !important;
@@ -366,7 +366,7 @@ nav h1 a {
   max-height: 248px;
   min-width: 100%;
 }
-#restaurants-list li h1 {
+#restaurants-list li h3 {
   color: #864903;
   font-family: Arial,sans-serif;
   font-size: 14pt;
@@ -381,8 +381,9 @@ nav h1 a {
   margin: 0;
   font-size: 11pt;
 }
-#restaurants-list li a {
+#restaurants-list li button {
   background-color: #2f1d0f;
+	border: none;
   border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
