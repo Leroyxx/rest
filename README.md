@@ -15,7 +15,8 @@ In a terminal, check the version of Python you have: python -V. If you have Pyth
 ## How to poke at features
 
 ### To get Google Maps working
-Replace `AIzaSyD4Yg2Ei_1Kz10K3-fcGCKYMDEIUzaLwAQ` in `index.html` and `restaurant.html` with a Google Maps API key. I've trashed mine for security reasons once I uploaded the project. Make sure you do this before the service worker caches these pages!
+Replace `<Key>` in `index.html` and `restaurant.html` with a Google Maps API key.
+Make sure you do this before the service worker caches these pages!
 
 
 + For accessibility:
