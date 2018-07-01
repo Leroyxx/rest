@@ -16,7 +16,7 @@
     <!-- Beginning header -->
     <header>
       <!-- Beginning nav -->
-      <nav>
+      <nav class="top-nav">
         <h1><a href="/">Restaurant Reviews</a></h1>
       </nav>
     </header>
@@ -24,16 +24,18 @@
     <div class="right">
       <button class="collapsible" aria-label="minimize map" hidden>_</button>
       <section id="map-container">
-      <div id="map"></div>
+      <div id="map" aria-label="location" role="application"></div>
     </section>
     </div>
     <!-- End map -->
 
   <div class=left>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
+    <nav role="navigation" aria-label="breadcrumb">
+    <ul id="breadcrumb">
       <li><a href="/">Home</a></li>
     </ul>
+    </nav>
     <!-- End breadcrumb -->
     <!-- End nav -->
   <!-- End header -->
